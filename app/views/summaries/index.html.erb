@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Summaries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Votes</th>
+      <th>Player</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @summaries.each do |summary| %>
+      <tr>
+        <td><%= summary.summary_votes.count %></td>
+        <td><%= summary.player.first_name %><%= summary.player.last_name %></td>
+        <td><%= summary.user.user_name || "Anonymous" %></td>
+        <td><%= link_to 'Show', summary %></td>
+        <td><%= link_to 'Edit', edit_summary_path(summary) %></td>
+        <td><%= link_to 'Destroy', summary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Summary', new_summary_path %>

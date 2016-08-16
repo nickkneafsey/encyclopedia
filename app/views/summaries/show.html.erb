@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Votes:</strong>
+  <%= @summary.summary_votes.count %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @summary.text %>
+</p>
+
+<p>
+  <strong>Player:</strong>
+  <%= @player_name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @summary.user.user_name || "Anonymous" %>
+</p>
+
+<%= link_to 'Edit', edit_summary_path(@summary) %> |
+<%= link_to 'Back', summaries_path %>

@@ -11,10 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160815064258) do
+ActiveRecord::Schema.define(version: 20160816061914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "players", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "team"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "summaries", force: :cascade do |t|
+    t.string   "text"
+    t.integer  "player_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "summaries", ["player_id"], name: "index_summaries_on_player_id", using: :btree
+  add_index "summaries", ["user_id"], name: "index_summaries_on_user_id", using: :btree
+
+  create_table "summary_votes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "summary_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "summary_votes", ["summary_id"], name: "index_summary_votes_on_summary_id", using: :btree
+  add_index "summary_votes", ["user_id"], name: "index_summary_votes_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -35,9 +64,14 @@ ActiveRecord::Schema.define(version: 20160815064258) do
     t.datetime "updated_at",                          null: false
     t.string   "provider"
     t.string   "uid"
+    t.string   "user_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "summaries", "players"
+  add_foreign_key "summaries", "users"
+  add_foreign_key "summary_votes", "summaries"
+  add_foreign_key "summary_votes", "users"
 end
