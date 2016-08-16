@@ -5,7 +5,7 @@ class SummariesController < ApplicationController
   # GET /summaries
   # GET /summaries.json
   def index
-    @summaries = Summary.all
+    @summaries = Summary.paginate(page: params[:page], per_page: 5)
   end
 
   # GET /summaries/1
