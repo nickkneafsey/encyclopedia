@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :images
   resources :summaries
-  resources :players
+  resources :players, except: [:delete]
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root 'welcome#index'
 
