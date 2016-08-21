@@ -14,6 +14,10 @@ gem 'bootstrap-will_paginate', '0.0.10'
 gem 'rest-client'
 gem 'json'
 
+#Sunspot
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+
 gem 'omniauth-facebook'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
