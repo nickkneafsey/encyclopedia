@@ -5,7 +5,8 @@ class SummariesController < ApplicationController
   # GET /summaries
   # GET /summaries.json
   def index
-    @summaries = Summary.paginate(page: params[:page], per_page: 5)
+    @summaries = Summary.where(player_id: params[:player_id]).paginate(page: params[:page], per_page: 5)
+    @summaries ||= Summary.paginate(page: params[:page], per_page: 5)
   end
 
   # GET /summaries/1
@@ -58,13 +59,13 @@ class SummariesController < ApplicationController
 
   # DELETE /summaries/1
   # DELETE /summaries/1.json
-  def destroy
-    @summary.destroy
-    respond_to do |format|
-      format.html { redirect_to summaries_url, notice: 'Summary was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @summary.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to summaries_url, notice: 'Summary was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
