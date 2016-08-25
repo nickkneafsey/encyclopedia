@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160824035959) do
+ActiveRecord::Schema.define(version: 20160825041523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,33 @@ ActiveRecord::Schema.define(version: 20160824035959) do
 
   add_index "players", ["first_name"], name: "index_players_on_first_name", using: :btree
   add_index "players", ["last_name"], name: "index_players_on_last_name", using: :btree
+
+  create_table "stats", force: :cascade do |t|
+    t.integer  "nba_player_id"
+    t.integer  "games_played"
+    t.integer  "games_started"
+    t.decimal  "minutes"
+    t.decimal  "fgm"
+    t.decimal  "fga"
+    t.decimal  "fg_pct"
+    t.decimal  "fg3m"
+    t.decimal  "fg3a"
+    t.decimal  "fg_3pct"
+    t.decimal  "oreb"
+    t.decimal  "dreb"
+    t.decimal  "reb"
+    t.decimal  "ast"
+    t.decimal  "steal"
+    t.decimal  "blk"
+    t.decimal  "tov"
+    t.decimal  "pf"
+    t.decimal  "pts"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.decimal  "ftm"
+    t.decimal  "fta"
+    t.decimal  "ft_pct"
+  end
 
   create_table "summaries", force: :cascade do |t|
     t.string   "text"
