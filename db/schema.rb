@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160825041523) do
+ActiveRecord::Schema.define(version: 20160826055613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20160825041523) do
 
   add_index "players", ["first_name"], name: "index_players_on_first_name", using: :btree
   add_index "players", ["last_name"], name: "index_players_on_last_name", using: :btree
+  add_index "players", ["nba_player_id"], name: "index_players_on_nba_player_id", unique: true, using: :btree
 
   create_table "stats", force: :cascade do |t|
     t.integer  "nba_player_id"
@@ -67,6 +68,8 @@ ActiveRecord::Schema.define(version: 20160825041523) do
     t.decimal  "fta"
     t.decimal  "ft_pct"
   end
+
+  add_index "stats", ["nba_player_id"], name: "index_stats_on_nba_player_id", unique: true, using: :btree
 
   create_table "summaries", force: :cascade do |t|
     t.string   "text"

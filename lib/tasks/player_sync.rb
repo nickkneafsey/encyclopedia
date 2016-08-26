@@ -1,5 +1,4 @@
 ENV['RAILS_ENV'] = ARGV.first || ENV['RAILS_ENV'] || 'development'
-# require File.expand_path(File.dirname(__FILE__) + "../../config/environment")
 require File.expand_path('../../../config/environment', __FILE__)
 require 'rest-client'
 require 'json'
