@@ -10,22 +10,38 @@ for (var i=0; i<ids.length; i++) {
 }
 
 function test(i) {
-  setTimeout(function() {
-    request('http://stats.nba.com/stats/playercareerstats?LeagueID=00&PerMode=PerGame&PlayerID=' + ids[i], function(error, response, body) {
-      if (error) {
-        errorCount ++;
-        return;
-      }
+  path = "./lib/assets/" + ids[i] + '.txt'
+  if (!fileExists(path)) {
+    setTimeout(function() {
+      request('http://stats.nba.com/stats/playercareerstats?LeagueID=00&PerMode=PerGame&PlayerID=' + ids[i], function(error, response, body) {
+        if (error) {
+          errorCount ++;
+          return;
+        }
 
-      console.log(response.statusCode);
-      if (response.statusCode == 200) {
-        fs.writeFile("./lib/assets/" + ids[i] + '.txt', response.body, function(err) {
-          if (err) {
-            return console.log(err);
-          }
-          console.log('saved ' + ids[i] + '.txt');
-        })
-      }
-    })
-  }, 600)
+        console.log(response.statusCode);
+        path = "./lib/assets/" + ids[i] + '.txt'
+        if (response.statusCode == 200 && !fileExists(path)) {
+
+          fs.writeFile(path, response.body, function(err) {
+            if (err) {
+              return console.log(err);
+            }
+            console.log('saved ' + ids[i] + '.txt');
+          })
+        }
+      })
+    }, 600)
+  }
+}
+
+function fileExists(filePath){
+    try
+    {
+        return fs.statSync(filePath).isFile();
+    }
+    catch (err)
+    {
+        return false;
+    }
 }
