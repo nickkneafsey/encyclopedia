@@ -15,5 +15,46 @@
   <%= @player.team %>
 </p>
 
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Career</div>
+
+  <!-- Table -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>G</th>
+        <th>MPG</th>
+        <th>FGM</th>
+        <th>FGA</th>
+        <th>FG%</th>
+        <th>FTM</th>
+        <th>FTA</th>
+        <th>FT%</th>
+        <th>REB</th>
+        <th>BLK</th>
+        <th>AST</th>
+        <th>STL</th>
+        <th>PPG</th>
+      </tr>
+      <tr>
+        <td><%= @stats.games_played %></td>
+        <td><%= @stats.minutes.to_s %></td>
+        <td><%= @stats.fgm.to_s %></td>
+        <td><%= @stats.fga.to_s %></td>
+        <td><%= @stats.fg_pct.to_s %></td>
+        <td><%= @stats.ftm.to_s %></td>
+        <td><%= @stats.fta.to_s %></td>
+        <td><%= @stats.ft_pct.to_s %></td>
+        <td><%= @stats.reb.to_s %></td>
+        <td><%= @stats.blk.to_s %></td>
+        <td><%= @stats.ast.to_s %></td>
+        <td><%= @stats.steal.to_s %></td>
+        <td><%= @stats.pts.to_s %></td>
+      </tr>
+    </thead>
+  </table>
+</div>
+
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>
