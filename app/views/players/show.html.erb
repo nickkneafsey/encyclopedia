@@ -1,19 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @player.first_name %>
-</p>
+<h2>
+  <%= "#{@player.first_name} #{@player.last_name}" %>
+</h2>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @player.last_name %>
-</p>
-
-<p>
-  <strong>Team:</strong>
-  <%= @player.team %>
-</p>
+<h4>
+  <%= @player.team if @player.team %>
+</h4>
 
 <div class="panel panel-default">
   <!-- Default panel contents -->
@@ -23,13 +16,13 @@
   <table class="table">
     <thead>
       <tr>
-        <th>G</th>
-        <th>MPG</th>
-        <th>FGM</th>
-        <th>FGA</th>
+        <th class="hide-small">G</th>
+        <th class="hide-small">MPG</th>
+        <th class="hide-small">FGM</th>
+        <th class="hide-small">FGA</th>
         <th>FG%</th>
-        <th>FTM</th>
-        <th>FTA</th>
+        <th class="hide-small">FTM</th>
+        <th class="hide-small">FTA</th>
         <th>FT%</th>
         <th>REB</th>
         <th>BLK</th>
@@ -38,14 +31,14 @@
         <th>PPG</th>
       </tr>
       <tr>
-        <td><%= @stats.games_played %></td>
-        <td><%= @stats.minutes.to_s %></td>
-        <td><%= @stats.fgm.to_s %></td>
-        <td><%= @stats.fga.to_s %></td>
-        <td><%= @stats.fg_pct.to_s %></td>
-        <td><%= @stats.ftm.to_s %></td>
-        <td><%= @stats.fta.to_s %></td>
-        <td><%= @stats.ft_pct.to_s %></td>
+        <td class="hide-small"><%= @stats.games_played %></td>
+        <td class="hide-small"><%= @stats.minutes.to_s %></td>
+        <td class="hide-small"><%= @stats.fgm.to_s %></td>
+        <td class="hide-small"><%= @stats.fga.to_s %></td>
+        <td><%= convert_number_string_to_percentage(@stats.fg_pct.to_s) %></td>
+        <td class="hide-small"><%= @stats.ftm.to_s %></td>
+        <td class="hide-small"><%= @stats.fta.to_s %></td>
+        <td><%= convert_number_string_to_percentage(@stats.ft_pct.to_s) %></td>
         <td><%= @stats.reb.to_s %></td>
         <td><%= @stats.blk.to_s %></td>
         <td><%= @stats.ast.to_s %></td>
