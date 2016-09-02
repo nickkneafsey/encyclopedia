@@ -1,10 +1,5 @@
 <%= form_tag(players_path, method: :get) do |f| %>
-  <div class="name">
-    <%= label_tag 'player_name', 'Search By Player' %>
-    <%= text_field_tag 'player_name' %>
-  </div>
-
-  <div class="actions">
-    <%= submit_tag "Filter"%>
+  <div class="name col-md-12">
+    <%= text_field_tag 'player_name', nil, placeholder: 'Search by Player', class: "big-search col-xs-12" %>
   </div>
 <% end %>

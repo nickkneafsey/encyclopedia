@@ -1,8 +1,38 @@
 // Place all the styles related to the Players controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.hide-small{
+.hide-small {
   @media (max-width: 650px) {
     display: none;
   }
+}
+
+.big-search {
+  border-radius: 40px;
+  font-size: 28px;
+  padding-left: 1em;
+  height: 80px;
+  box-sizing: border-box;
+  border: 1px solid #C4C4C4;
+}
+
+.ten-pixel-margins {
+  margin-left: 10px;
+  margin-right:10px;
+}
+
+::-webkit-input-placeholder {
+   color: #C4C4C4;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #C4C4C4;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #C4C4C4;
+}
+
+:-ms-input-placeholder {
+   color: #C4C4C4;
 }
