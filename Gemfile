@@ -24,6 +24,9 @@ gem 'json'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 
+# React
+gem 'react_on_rails', '~>6'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
