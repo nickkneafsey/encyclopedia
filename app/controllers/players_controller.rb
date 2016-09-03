@@ -18,6 +18,7 @@ class PlayersController < ApplicationController
   # GET /players/1.json
   def show
     @stats = Stat.find_by_nba_player_id(@player.nba_player_id)
+    @summaries = Summary.where(player_id: @player.id)
   end
 
   # GET /players/new

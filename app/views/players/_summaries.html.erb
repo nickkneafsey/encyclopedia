@@ -1,0 +1,21 @@
+<table>
+  <thead>
+    <tr>
+      <th>Votes</th>
+      <th>Player</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @summaries.each do |summary| %>
+      <tr>
+        <td><%= summary.summary_votes.count %></td>
+        <td><%= link_to "#{summary.title}", summary %></td>
+        <td><%= summary.user.user_name || "Anonymous" %></td>
+        <td><%= link_to 'Show', summary %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
