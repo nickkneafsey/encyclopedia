@@ -4,13 +4,18 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 
+# Authentication
 gem 'devise'
+gem 'omniauth-facebook'
+
+# Styles
 gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
 
 gem 'will_paginate', '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
 
+# HTTP
 gem 'rest-client'
 gem 'httparty'
 gem 'json'
@@ -19,7 +24,6 @@ gem 'json'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 
-gem 'omniauth-facebook'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
