@@ -16,9 +16,12 @@
   border: 1px solid #C4C4C4;
 }
 
-.ten-pixel-margins {
-  margin-left: 10px;
-  margin-right:10px;
+.big-search:focus {
+  border-radius: 40px;
+}
+
+input[type="text"]{
+  outline:none;
 }
 
 ::-webkit-input-placeholder {
