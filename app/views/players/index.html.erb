@@ -22,3 +22,6 @@
 </table>
 
 <br>
+
+<% players = render(template: "/players/index.json.jbuilder") %>
+<%= react_component('PlayersApp', props: { players: players } ) %>
