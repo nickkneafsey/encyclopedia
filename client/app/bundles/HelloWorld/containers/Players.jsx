@@ -19,14 +19,16 @@ const Players = (props) => {
   const actions = bindActionCreators(playersActionCreators, dispatch);
   const { updatePlayers } = actions;
   const players = $$playersStore.get('players');
+  // TODO fix below
+  console.log(players)
   const playersArray = JSON.parse(players)
 
   return (
-    <div>
+    <ul className="list-group">
       {playersArray.map((player) =>
-        <PlayerEntry player={player} id={player.id} />
+        <PlayerEntry player={player} key={player.id} />
       )}
-    </div>
+    </ul>
   );
 };
 

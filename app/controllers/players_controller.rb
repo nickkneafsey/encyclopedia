@@ -80,4 +80,9 @@ class PlayersController < ApplicationController
     def player_params
       params.require(:player).permit(:first_name, :last_name, :team, :first_year, :last_year, :nba_player_id)
     end
+
+    def players_to_string
+      @players_string = render_to_string(template: "/players/index.json.jbuilder",
+                        format: :json)
+    end
 end

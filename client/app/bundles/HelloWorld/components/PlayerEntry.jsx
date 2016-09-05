@@ -1,9 +1,14 @@
 import React, { PropTypes } from 'react';
 
 const PlayerEntry = ({player}) => (
-  <section>
-    { JSON.stringify(player) }
-  </section>
+  <li className="list-group-item" >
+    {`${player.first_name} ${player.last_name}`}
+    <div className="btn-group pull-right" role="group" aria-label="...">
+      <a href={player.url} type="button" className="btn btn-default  btn-xs">Info</a>
+      <a type="button" className="btn btn-default btn-xs">Bios</a>
+      <a type="button" className="btn btn-default btn-xs">Images</a>
+    </div>
+  </li>
 )
 
 export default PlayerEntry;

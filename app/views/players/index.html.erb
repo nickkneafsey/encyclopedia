@@ -24,4 +24,4 @@
 <br>
 
 <% players = render(template: "/players/index.json.jbuilder") %>
-<%= react_component('PlayersApp', props: { players: players } ) %>
+<%= react_component('PlayersApp', props: { players: players }, prerender: true ) %>
