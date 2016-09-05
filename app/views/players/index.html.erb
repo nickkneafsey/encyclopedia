@@ -3,25 +3,6 @@
 <%= render 'search' %>
 
 <%= will_paginate %>
-<table>
-  <thead>
-    <tr>
-      <th>Player</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @players.each do |player| %>
-      <tr>
-        <td><%= link_to "#{player.first_name} #{player.last_name}", player %></td>
-        <td><%= link_to 'Summaries', {controller: "summaries", action: "index", player_id: player.id} %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
 
 <% players = render(template: "/players/index.json.jbuilder") %>
 <%= react_component('PlayersApp', props: { players: players }, prerender: true ) %>
