@@ -10,6 +10,10 @@ class Player < ActiveRecord::Base
     Rails.application.routes.url_helpers.url_for(controller: "summaries", action: "index", player_id: id)
   end
 
+  def player_image_url
+    
+  end
+
   searchable do
     text :first_name
     text :last_name, :default_boost => 2
