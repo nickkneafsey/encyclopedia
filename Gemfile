@@ -24,6 +24,11 @@ gem 'json'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 
+# Photo gems
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+
 # React
 gem 'react_on_rails', '~>6'
 
