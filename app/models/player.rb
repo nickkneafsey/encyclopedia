@@ -1,6 +1,5 @@
 class Player < ActiveRecord::Base
-  # attr_accessor :info_url
-  # attr_accessible :info_url
+  has_many :images
 
   def info_url
     Rails.application.routes.url_helpers.player_url(id)
@@ -11,7 +10,7 @@ class Player < ActiveRecord::Base
   end
 
   def player_image_url
-    
+
   end
 
   searchable do
