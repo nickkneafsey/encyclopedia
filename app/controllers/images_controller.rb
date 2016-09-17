@@ -4,7 +4,7 @@ class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
-    @images = Image.all
+    @images = Image.paginate(page: params[:page], per_page: 50)
   end
 
   # GET /images/1
@@ -28,10 +28,15 @@ class ImagesController < ApplicationController
   def create
     @image = Image.new(image_params)
     @image.user = current_user
-    # TODO add @image.player here
+
 
     respond_to do |format|
       if @image.save
+        # Creator automatically votes for their own picture
+        # TODO use better practice on this
+        @vote = ImageVote.new({image_id: @image.id, user_id: current_user})
+        @vote.save
+
         format.html { redirect_to @image, notice: 'Image was successfully created.' }
         format.json { render :show, status: :created, location: @image }
       else
