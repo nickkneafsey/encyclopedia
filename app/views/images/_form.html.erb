@@ -14,6 +14,12 @@
     </div>
   <% end %>
 
+  <%= f.select(:player_id) do %>
+    <% @players.each do |p| %>
+      <%= content_tag(:option, "#{p.first_name} #{p.last_name}", value: p.id) %>
+    <% end %>
+  <% end %>
+
   <div class="form-group">
     <%= f.label :picture, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">

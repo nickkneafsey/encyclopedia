@@ -14,6 +14,8 @@ class ImagesController < ApplicationController
 
   # GET /images/new
   def new
+    # TODO mvp shit below
+    @players = Player.all
     @image = Image.new
   end
 
@@ -71,6 +73,6 @@ class ImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.require(:image).permit(:picture)
+      params.require(:image).permit(:picture, :player_id)
     end
 end
