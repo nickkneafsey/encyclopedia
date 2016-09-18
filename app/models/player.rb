@@ -1,5 +1,6 @@
 class Player < ActiveRecord::Base
   has_many :images
+  has_one :stat, :foreign_key => 'nba_player_id', :primary_key => 'nba_player_id'
 
   def info_url
     Rails.application.routes.url_helpers.player_url(id)

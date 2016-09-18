@@ -14,25 +14,21 @@
     </div>
   <% end %>
 
-  <%= f.select(:player_id) do %>
-    <% @players.each do |p| %>
-      <%= content_tag(:option, "#{p.first_name} #{p.last_name}", value: p.id) %>
-    <% end %>
-  <% end %>
+  <%= f.select :player_id, options_for_select( @players.collect { |player| ["#{player.first_name} #{player.last_name}", player.id] } ), { prompt: "Select Player" }, { class: 'form-control',  required: true } %>
 
   <div class="form-group">
-    <%= f.label :picture, :class => 'control-label col-lg-2' %>
+    <!-- <%= f.label :picture, :class => 'control-label col-lg-2' %> -->
     <div class="col-lg-10">
-      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', required: true %>
     </div>
     <%=f.error_span(:picture) %>
   </div>
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= f.submit nil, :class => 'btn btn-outline-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                root_path, :class => 'btn btn-default' %>
+                root_path, :class => 'btn btn-outline-danger' %>
     </div>
   </div>
 

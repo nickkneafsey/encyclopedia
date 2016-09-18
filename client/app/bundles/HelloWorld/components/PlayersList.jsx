@@ -10,7 +10,7 @@ export default class PlayersList extends React.Component {
     const { players } = this.props;
     console.log("props", props)
     return (
-      <section>
+      <section className="player-list">
         { this.props.players.map((player) =>
           <PlayerEntry key={player.id} player={player} />
         )}

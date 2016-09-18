@@ -15,7 +15,7 @@ class ImagesController < ApplicationController
   # GET /images/new
   def new
     # TODO mvp shit below
-    @players = Player.all
+    @players = Player.joins(:stat).where("stats.games_played > 100")
     @image = Image.new
   end
 

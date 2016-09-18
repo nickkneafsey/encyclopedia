@@ -24,7 +24,7 @@ const Players = (props) => {
   const playersArray = JSON.parse(players)
 
   return (
-    <ul className="list-group">
+    <ul className="list-group player-list">
       {playersArray.map((player) =>
         <PlayerEntry player={player} key={player.id} />
       )}

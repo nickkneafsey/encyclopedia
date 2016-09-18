@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <%= render 'search' %>
+<div class="center">
+  <%= will_paginate %>
+</div>
 
-<%= will_paginate %>
-
+<br>
 <% players = render(template: "/players/index.json.jbuilder") %>
 <%= react_component('PlayersApp', props: { players: players }, prerender: true ) %>
