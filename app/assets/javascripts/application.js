@@ -17,4 +17,5 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
+//= require newPhoto
 //= require_tree .
