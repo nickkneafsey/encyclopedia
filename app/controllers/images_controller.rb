@@ -4,7 +4,11 @@ class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
-    @images = Image.paginate(page: params[:page], per_page: 50)
+    if params[:player_id]
+      @images = Image.where({player_id: params[:player_id]}).paginate(page: params[:page], per_page: 50)
+    else
+      @images = Image.paginate(page: params[:page], per_page: 50)
+    end
   end
 
   # GET /images/1
@@ -14,8 +18,12 @@ class ImagesController < ApplicationController
 
   # GET /images/new
   def new
-    # TODO mvp shit below
-    @players = Player.joins(:stat).where("stats.games_played > 100")
+    if  params[:player_id]
+      @players = Player.where({id: params[:player_id]})
+    else
+      @players = Player.joins(:stat).where("stats.games_played > 100")
+    end
+
     @image = Image.new
   end
 

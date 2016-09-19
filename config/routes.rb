@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   # resources :images
   resources :summaries
-  resources :players, except: [:delete]
+
+  resources :players, except: [:delete] do
+    resources :images, only: [:index, :new, :create, :show]
+  end
+
   resources :images, except: [:delete]
+
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root 'welcome#index'
